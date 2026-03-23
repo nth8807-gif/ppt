@@ -57,9 +57,9 @@ int menu(){
     int chon;
     printf("\n-----------------------------\n");
     printf("1. Doi ham\n");
-    printf("2. Doi x0\n");
+    printf("2. Doi xap xi ban dau x0\n");
     printf("3. Thoat\n");
-    printf("Chon: ");
+    printf("Chon : ");
     scanf("%d",&chon);
     return chon;
 }
@@ -73,7 +73,7 @@ int main(){
     while(1){
         printf("\n[1] Ham nguon");
         printf("\n[2] Ham da thuc");
-        printf("\nChon: ");
+        printf("\nChon ham can tinh : ");
         scanf(" %c",&ham);
 
         if(ham == '1'){
@@ -83,17 +83,17 @@ int main(){
         else{
             nhap_dathuc();
             f_x = &f;
-            df_x =& df;
+            df_x =&df;
         }
 
         while(1){
-            printf("\nNhap x0: ");
+            printf("\nNhap xap xi ban dau x0: ");
             scanf("%f",&x0);
-
             float nghiem = tieptuyen(x0);
             if(fabs(nghiem) < EPS) nghiem = 0;
             printf("Nghiem: %.6f\n", nghiem);
             chon = menu();
+            getchar();
             if(chon==2) continue;
             if(chon==1) break;
             if(chon==3) return 0;
