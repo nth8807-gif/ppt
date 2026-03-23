@@ -66,7 +66,8 @@ int menu(){
 
 
 int main(){
-    char chon,ham;
+    char ham;
+    int chon;
     float x0;
 
     while(1){
@@ -93,9 +94,9 @@ int main(){
             if(fabs(nghiem) < EPS) nghiem = 0;
             printf("Nghiem: %.6f\n", nghiem);
             chon = menu();
-            if(chon=='2') continue;
-            if(chon=='1') break;
-            if(chon=='3') return 0;
+            if(chon==2) continue;
+            if(chon==1) break;
+            if(chon==3) return 0;
         }
     }
 }
