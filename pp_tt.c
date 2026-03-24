@@ -37,25 +37,24 @@ void nhap_dathuc(){
         scanf("%f",&a[i]);
 }
 
-float tieptuyen(float x0){
+void tieptuyen(float x0){
     float x = x0, y;
     int dem = 0;
-
     do{
         y = x;
         if(fabs(df_x(y)) < EPS){
             printf("Dao ham bang 0 tai x = %.6f\n", y);
-            return 1e9;
+            return;
         }
         x = y - f_x(y)/df_x(y);
         dem++;
         if(dem > 1000){
-            printf("Khong hoi tu!\n");
-            return 1e9;
+            printf("Khong hoi tu\n");
+            return;
         }
-
     } while(fabs(x - y) >= EPS);
-    return x;
+    if(fabs(x) < EPS) x = 0;
+    printf("Nghiem cua phuong trinh : %.6f\n", x);
 }
 int menu(){
     int chon;
@@ -91,16 +90,8 @@ int main(){
         while(1){
             printf("\nNhap xap xi ban dau x0: ");
             scanf("%f",&x0);
-            float nghiem = tieptuyen(x0);
-           if(fabs(nghiem - 1e9) < EPS){
+            tieptuyen(x0);
             chon=menu();
-            if(chon == 2) continue; 
-            if(chon == 1) break;    
-            if(chon == 3) return 0;
-}
-            if(fabs(nghiem) < EPS) nghiem = 0;
-            printf("Nghiem: %.6f\n", nghiem);
-            chon = menu();
             if(chon==2) continue;
             if(chon==1) break;
             if(chon==3) return 0;
